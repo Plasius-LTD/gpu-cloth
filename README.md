@@ -19,6 +19,18 @@ Apache-2.0. ESM + CJS builds. TypeScript types included.
 npm install @plasius/gpu-cloth
 ```
 
+## Browser Demo
+
+```bash
+npm run demo
+```
+
+Then open `http://localhost:8000/gpu-cloth/demo/`.
+
+`npm run demo` now serves a browser-based 3D harbor validation scene focused on
+cloth continuity. The existing console example remains available via
+`npm run demo:example`.
+
 ## What It Solves
 
 - Defines near, mid, far, and horizon cloth representation bands.
