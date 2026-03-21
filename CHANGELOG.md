@@ -12,8 +12,9 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 
 ### Changed
 
-- `gpu-cloth/demo/` is now self-contained, with a local harbor runtime, GLTF
-  ship asset, and loader instead of a sibling-repo showcase import.
+- `gpu-cloth/demo/` now delegates its 3D harbor scene to the shared
+  `gpu-demo-viewer` showcase runtime instead of carrying a package-local copy
+  of the renderer and loader logic.
 - `npm run demo` still serves the browser demo, while `npm run demo:example`
   keeps the original console example path.
 - The harbor runtime now renders stronger near-field shadow projection and

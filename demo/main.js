@@ -64,7 +64,7 @@ function describeState(state) {
       `reflection mode: ${representation.shading.reflectionMode}`,
     ],
     notes: [
-      "This demo is package-local and no longer imports the shared viewer repo at runtime.",
+      "This demo now runs on the shared gpu-demo-viewer harbor runtime instead of carrying its own local scene implementation.",
       "The flag motion visibly softens as the active representation band moves farther from the camera.",
       "Silhouette continuity stays intact even when wrinkle detail is reduced.",
     ],
@@ -96,7 +96,7 @@ await mountHarborShowcase({
   packageName: "@plasius/gpu-cloth",
   title: "Cloth Continuity in a 3D Harbor",
   subtitle:
-    "Package-local 3D validation for cloth representation bands, with the flag acting as the near-field hero asset next to colliding GLTF ships.",
+    "Family-coordinated 3D validation for cloth representation bands, with the flag acting as the near-field hero asset next to colliding GLTF ships.",
   createState,
   updateState,
   describeState,
