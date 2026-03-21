@@ -13,7 +13,7 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 ### Changed
 
 - `gpu-cloth/demo/` now delegates its 3D harbor scene to the shared
-  `gpu-demo-viewer` showcase runtime instead of carrying a package-local copy
+  `@plasius/gpu-shared` showcase runtime instead of carrying a package-local copy
   of the renderer and loader logic.
 - `npm run demo` still serves the browser demo, while `npm run demo:example`
   keeps the original console example path.

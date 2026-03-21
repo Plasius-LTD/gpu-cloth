@@ -64,7 +64,7 @@ function describeState(state) {
       `reflection mode: ${representation.shading.reflectionMode}`,
     ],
     notes: [
-      "This demo now runs on the shared gpu-demo-viewer harbor runtime instead of carrying its own local scene implementation.",
+      "This demo now runs on the shared @plasius/gpu-shared harbor runtime instead of carrying its own local scene implementation.",
       "The flag motion visibly softens as the active representation band moves farther from the camera.",
       "Silhouette continuity stays intact even when wrinkle detail is reduced.",
     ],
