@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import fs from "node:fs";
+import path from "node:path";
 
 import {
   createClothRepresentationPlan,
@@ -69,5 +71,23 @@ describe("createClothRepresentationPlan", () => {
         farFieldMaxMeters: 120,
       })
     ).toThrow(/must satisfy/i);
+  });
+
+  it("uses the public gpu-shared package surface for the browser demo", () => {
+    const demoSource = fs.readFileSync(
+      path.resolve(process.cwd(), "demo", "main.js"),
+      "utf8"
+    );
+    const demoHtml = fs.readFileSync(
+      path.resolve(process.cwd(), "demo", "index.html"),
+      "utf8"
+    );
+
+    expect(demoSource).toContain('from "@plasius/gpu-shared"');
+    expect(demoSource).not.toContain("node_modules/@plasius/gpu-shared/dist");
+    expect(demoHtml).toContain('<script type="importmap">');
+    expect(demoHtml).toContain(
+      '"@plasius/gpu-shared": "../node_modules/@plasius/gpu-shared/dist/index.js"'
+    );
   });
 });

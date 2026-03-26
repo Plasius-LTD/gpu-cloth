@@ -27,9 +27,9 @@ npm run demo
 
 Then open `http://localhost:8000/gpu-cloth/demo/`.
 
-`npm run demo` now serves a browser-based 3D harbor validation scene from
-`@plasius/gpu-shared`, focused on cloth continuity. The existing console example
-remains available via `npm run demo:example`.
+`npm run demo` now serves a browser-based 3D harbor validation scene from the
+public `@plasius/gpu-shared` package surface, focused on cloth continuity. The
+existing console example remains available via `npm run demo:example`.
 
 ## What It Solves
 

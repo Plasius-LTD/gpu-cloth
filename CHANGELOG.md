@@ -7,13 +7,16 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 ## [Unreleased]
 
 - **Added**
-  - (placeholder)
+  - Contract tests that lock the browser demo to the public
+    `@plasius/gpu-shared` package surface.
 
 - **Changed**
-  - (placeholder)
+  - Updated the README to clarify that the cloth harbor demo consumes the
+    shared runtime through the published package surface.
 
 - **Fixed**
-  - (placeholder)
+  - Removed the cloth demo's deep import of `@plasius/gpu-shared` internals in
+    favor of an import-map-backed package import.
 
 - **Security**
   - (placeholder)
