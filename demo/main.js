@@ -65,7 +65,7 @@ function describeState(state) {
     ],
     notes: [
       "This demo now runs on the shared @plasius/gpu-shared harbor runtime instead of carrying its own local scene implementation.",
-      "The flag motion visibly softens as the active representation band moves farther from the camera.",
+      "The flag motion visibly softens as the active representation band moves farther from the camera while the scene keeps its moonlit living-painting read.",
       "Silhouette continuity stays intact even when wrinkle detail is reduced.",
     ],
     textState: {
@@ -81,12 +81,10 @@ function describeState(state) {
       flagColor: band === "near" ? { r: 0.82, g: 0.26, b: 0.18 } : { r: 0.7, g: 0.24, b: 0.18 },
       reflectionStrength: representation.shading.reflectionMode === "selective" ? 0.18 : 0.08,
       shadowAccent: representation.shadowMode === "ray-traced-primary" ? 0.1 : 0.04,
-      skyTop: "#eef5f9",
-      skyMid: "#c0d2de",
-      skyBottom: "#819fb2",
-      seaTop: "#235366",
-      seaMid: "#123d52",
-      seaBottom: "#082331",
+      waterNear: band === "near" ? { r: 0.1, g: 0.25, b: 0.36 } : { r: 0.11, g: 0.22, b: 0.32 },
+      waterFar: { r: 0.18, g: 0.35, b: 0.48 },
+      lanternReflectionStrength: band === "near" ? 0.52 : 0.38,
+      moonHalo: band === "near" ? "rgba(174, 198, 255, 0.28)" : "rgba(148, 176, 236, 0.2)",
     },
   };
 }
@@ -96,7 +94,7 @@ await mountHarborShowcase({
   packageName: "@plasius/gpu-cloth",
   title: "Cloth Continuity in a 3D Harbor",
   subtitle:
-    "Family-coordinated 3D validation for cloth representation bands, with the flag acting as the near-field hero asset next to colliding GLTF ships.",
+    "Family-coordinated moonlit harbor validation for cloth representation bands, with the flag acting as the near-field hero asset next to colliding GLTF ships.",
   createState,
   updateState,
   describeState,
