@@ -7,6 +7,20 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 ## [Unreleased]
 
 - **Added**
+  - (placeholder)
+
+- **Changed**
+  - (placeholder)
+
+- **Fixed**
+  - (placeholder)
+
+- **Security**
+  - (placeholder)
+
+## [0.1.2] - 2026-04-02
+
+- **Added**
   - Contract tests that lock the browser demo to the public
     `@plasius/gpu-shared` package surface.
 
@@ -66,3 +80,4 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 
 [0.1.0]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.0
 [0.1.1]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.1
+[0.1.2]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.2
