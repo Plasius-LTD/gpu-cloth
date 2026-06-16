@@ -268,6 +268,36 @@ export interface ClothShadingPlan {
 }
 
 /**
+ * Texture-oriented shading input for cloth materials.
+ */
+export interface ClothMaterialTextureDescriptor {
+  kind: "normal" | "height" | "baseColor" | "sheen";
+  assetId: string;
+  uvScale: readonly [number, number] | readonly number[];
+  strength: number;
+}
+
+/**
+ * Cloth-facing material descriptor for renderer integration.
+ */
+export interface ClothSurfaceMaterialDescriptor {
+  id: string;
+  shadingModel: "cloth";
+  baseColor: readonly [number, number, number, number] | readonly number[];
+  roughness: number;
+  metallic: number;
+  opacity: number;
+  doubleSided: boolean;
+  specular: number;
+  sheen: number;
+  sheenColor: readonly [number, number, number, number] | readonly number[];
+  sheenRoughness: number;
+  normalTexture: Readonly<ClothMaterialTextureDescriptor> | null;
+  heightTexture: Readonly<ClothMaterialTextureDescriptor> | null;
+  sheenTexture: Readonly<ClothMaterialTextureDescriptor> | null;
+}
+
+/**
  * Per-band scheduling and performance hints.
  */
 export interface ClothRepresentationPerformanceHints {
@@ -295,6 +325,7 @@ export interface ClothRepresentationDescriptor {
   rtParticipation: ClothRtParticipation;
   shadowMode: ClothShadowMode;
   shading: Readonly<ClothShadingPlan>;
+  material: Readonly<ClothSurfaceMaterialDescriptor>;
   continuity: Readonly<ClothContinuityBandSettings> & {
     continuityGroupId: string;
     motionFieldId: string;
@@ -315,6 +346,40 @@ export interface ClothRepresentationPlanOptions {
   midFieldMaxMeters?: number;
   farFieldMaxMeters?: number;
   continuity?: Partial<Omit<ClothContinuityEnvelopeInput, "garmentId">>;
+}
+
+/**
+ * Geometry payload passed from a cloth package into a wavefront scene adapter.
+ */
+export interface ClothWavefrontSceneSourceMeshInput {
+  id: string;
+  garmentId: string;
+  representationBand: ClothRepresentationBand;
+  rtParticipation: ClothRtParticipation;
+  accelerationStructureUpdateClass: "deforming" | "proxy" | "static";
+  materialId: string;
+  positions: readonly number[];
+  normals: readonly number[] | null;
+  tangents: readonly number[] | null;
+  uvs: readonly number[] | null;
+  derivableUvs: Readonly<{
+    enabled: boolean;
+    projection: "planar" | "world-xy";
+    scale: readonly [number, number] | readonly number[];
+  }>;
+  indices: readonly number[];
+}
+
+/**
+ * Renderer-facing cloth scene source payload.
+ */
+export interface ClothWavefrontSceneSourceAdapterOutput {
+  schemaVersion: 1;
+  owner: "cloth";
+  adapterId: string;
+  garmentId: string;
+  material: Readonly<ClothSurfaceMaterialDescriptor>;
+  mesh: Readonly<ClothWavefrontSceneSourceMeshInput>;
 }
 
 /**

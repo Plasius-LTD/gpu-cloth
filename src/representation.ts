@@ -25,6 +25,7 @@ type BandDescriptorSpec = Omit<
   | "profile"
   | "band"
   | "continuity"
+  | "material"
 >;
 
 type ProfileRepresentationSpec = Record<ClothRepresentationBand, BandDescriptorSpec>;
@@ -350,6 +351,58 @@ const profileRepresentationSpecs: Readonly<
   }),
 });
 
+function createClothMaterialDescriptor(
+  garmentId: string,
+  band: ClothRepresentationBand,
+  profile: ClothProfileName
+) {
+  const cinematic = profile === "cinematic";
+  const farBand = band === "far" || band === "horizon";
+
+  return Object.freeze({
+    id: `${garmentId}.${band}.cloth-material`,
+    shadingModel: "cloth" as const,
+    baseColor: Object.freeze(
+      band === "near" ? [0.18, 0.18, 0.2, 1] : band === "mid" ? [0.2, 0.2, 0.22, 1] : [0.22, 0.22, 0.24, 1]
+    ),
+    roughness: band === "near" ? 0.64 : band === "mid" ? 0.72 : 0.82,
+    metallic: 0,
+    opacity: 1,
+    doubleSided: true,
+    specular: band === "near" ? 0.42 : 0.3,
+    sheen: band === "near" ? (cinematic ? 0.78 : 0.62) : band === "mid" ? 0.46 : 0.18,
+    sheenColor: Object.freeze(
+      band === "near" ? [0.94, 0.92, 0.88, 1] : [0.82, 0.82, 0.8, 1]
+    ),
+    sheenRoughness: band === "near" ? 0.38 : band === "mid" ? 0.52 : 0.7,
+    normalTexture: farBand
+      ? null
+      : Object.freeze({
+          kind: "normal" as const,
+          assetId: `${garmentId}.cloth-normal`,
+          uvScale: Object.freeze([1, 1]),
+          strength: band === "near" ? 1 : 0.7,
+        }),
+    heightTexture: farBand
+      ? null
+      : Object.freeze({
+          kind: "height" as const,
+          assetId: `${garmentId}.cloth-height`,
+          uvScale: Object.freeze([1, 1]),
+          strength: band === "near" ? 0.02 : 0.01,
+        }),
+    sheenTexture:
+      band === "horizon"
+        ? null
+        : Object.freeze({
+            kind: "sheen" as const,
+            assetId: `${garmentId}.cloth-sheen`,
+            uvScale: Object.freeze([1, 1]),
+            strength: band === "near" ? 1 : 0.6,
+          }),
+  });
+}
+
 function normalizeThresholds(
   nearFieldMaxMeters: unknown,
   midFieldMaxMeters: unknown,
@@ -422,6 +475,7 @@ function buildRepresentationDescriptor(
         ? "selective-raster"
         : profileSpec.shadowMode,
     shading: profileSpec.shading,
+    material: createClothMaterialDescriptor(garmentId, band, profile),
     continuity: Object.freeze({
       continuityGroupId: continuityEnvelope.continuityGroupId,
       motionFieldId: continuityEnvelope.motionFieldId,

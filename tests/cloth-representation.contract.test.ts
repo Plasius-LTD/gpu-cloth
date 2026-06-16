@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import {
+  createClothWavefrontSceneSourceAdapter,
   createClothRepresentationPlan,
   selectClothRepresentationBand,
 } from "../src/index.js";
@@ -89,5 +90,46 @@ describe("createClothRepresentationPlan", () => {
     expect(demoHtml).toContain(
       '"@plasius/gpu-shared": "../node_modules/@plasius/gpu-shared/dist/index.js"'
     );
+  });
+
+  it("includes deterministic cloth material defaults for renderer integration", () => {
+    const plan = createClothRepresentationPlan({
+      garmentId: "hero-cape",
+      profile: "cinematic",
+      supportsRayTracing: true,
+    });
+
+    const near = plan.representations.find((entry) => entry.band === "near");
+    const horizon = plan.representations.find((entry) => entry.band === "horizon");
+
+    expect(near?.material.sheen).toBeGreaterThan(0.5);
+    expect(near?.material.normalTexture?.kind).toBe("normal");
+    expect(near?.material.doubleSided).toBe(true);
+    expect(horizon?.material.normalTexture).toBe(null);
+  });
+
+  it("builds a wavefront scene-source adapter payload from cloth geometry", () => {
+    const plan = createClothRepresentationPlan({
+      garmentId: "hero-cape",
+      profile: "interactive",
+      supportsRayTracing: true,
+    });
+    const near = plan.representations.find((entry) => entry.band === "near");
+
+    expect(near).toBeDefined();
+    const adapter = createClothWavefrontSceneSourceAdapter({
+      garmentId: "hero-cape",
+      representation: near!,
+      mesh: {
+        positions: [0, 0, 0, 1, 0, 0, 0, 1, 0],
+        normals: [0, 0, 1, 0, 0, 1, 0, 0, 1],
+        indices: [0, 1, 2],
+      },
+    });
+
+    expect(adapter.owner).toBe("cloth");
+    expect(adapter.mesh.materialId).toBe(near!.material.id);
+    expect(adapter.mesh.derivableUvs.enabled).toBe(true);
+    expect(adapter.mesh.accelerationStructureUpdateClass).toBe("deforming");
   });
 });
