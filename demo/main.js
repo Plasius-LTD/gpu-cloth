@@ -95,6 +95,9 @@ await mountHarborShowcase({
   title: "Cloth Continuity in a 3D Harbor",
   subtitle:
     "Family-coordinated moonlit harbor validation for cloth representation bands, with the flag acting as the near-field hero asset next to colliding GLTF ships.",
+  __showcaseFeatureLoaders: {
+    cloth: async () => import("../dist/index.js"),
+  },
   createState,
   updateState,
   describeState,

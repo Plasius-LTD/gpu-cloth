@@ -7,7 +7,11 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 ## [Unreleased]
 
 - **Added**
-  - (placeholder)
+  - Added deterministic cloth material descriptors to cloth representation
+    plans so renderer integrations can carry sheen, roughness, normal-detail,
+    and double-sided surface intent per band.
+  - Added `createClothWavefrontSceneSourceAdapter(...)` so cloth geometry can
+    emit wavefront-compatible mesh, material, and representation-band metadata.
 
 - **Changed**
   - (placeholder)

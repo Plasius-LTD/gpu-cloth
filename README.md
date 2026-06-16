@@ -46,6 +46,7 @@ existing console example remains available via `npm run demo:example`.
 
 ```ts
 import {
+  createClothWavefrontSceneSourceAdapter,
   createClothRepresentationPlan,
   createClothSimulationPlan,
   getClothWorkerManifest,
@@ -67,12 +68,25 @@ const activeRepresentation = representationPlan.representations.find(
   (entry) => entry.band === activeBand
 );
 
-console.log(activeBand, activeRepresentation?.continuity);
+console.log(activeBand, activeRepresentation?.material.sheen);
 
 const simulationPlan = createClothSimulationPlan("interactive");
 const workerManifest = getClothWorkerManifest("interactive");
 
-console.log(simulationPlan.snapshotSource.stage, workerManifest.jobs.length);
+const adapter = createClothWavefrontSceneSourceAdapter({
+  garmentId: "hero-cape",
+  representation: activeRepresentation!,
+  mesh: {
+    positions: [0, 0, 0, 1, 0, 0, 0, 1, 0],
+    indices: [0, 1, 2],
+  },
+});
+
+console.log(
+  simulationPlan.snapshotSource.stage,
+  workerManifest.jobs.length,
+  adapter.mesh.materialId
+);
 ```
 
 ## Continuity Model
@@ -110,6 +124,20 @@ Each job carries:
 - performance levels and ray-tracing-first metadata for
   `@plasius/gpu-performance`
 - debug metadata suitable for future `@plasius/gpu-debug` adoption
+
+## Wavefront Material Contract
+
+Each representation now also carries deterministic cloth-material defaults so
+fabric appearance can travel with the continuity plan:
+
+- `material.sheen`, `material.sheenColor`, `material.sheenRoughness`
+- `material.roughness`, `material.specular`, and `material.doubleSided`
+- optional normal-map and height-map descriptor slots for higher-detail cloth
+
+`createClothWavefrontSceneSourceAdapter(...)` bundles those descriptors with
+positions, normals, tangents or tangent-generation hints, UV or derivable-UV
+metadata, indices, representation band, and RT participation so the renderer
+can ingest cloth as a stable scene-source payload.
 
 ## Package Scope
 
