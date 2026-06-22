@@ -1,6 +1,6 @@
 {
   "name": "@plasius/gpu-cloth",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Continuity-aware cloth simulation and rendering contracts for Plasius WebGPU stacks.",
   "type": "module",
   "sideEffects": false,
