@@ -10,7 +10,8 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
   - (placeholder)
 
 - **Changed**
-  - (placeholder)
+  - Updated `@plasius/gpu-shared` to the latest stable `1.x` baseline and
+    regenerated the package lockfile from a clean install.
 
 - **Fixed**
   - (placeholder)

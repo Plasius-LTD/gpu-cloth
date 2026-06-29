@@ -63,7 +63,7 @@
   "homepage": "https://github.com/Plasius-LTD/gpu-cloth#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^25.7.0",
+    "@types/node": "^26.0.1",
     "@typescript-eslint/eslint-plugin": "^8.59.3",
     "@typescript-eslint/parser": "^8.59.3",
     "@vitest/coverage-v8": "^4.1.6",
@@ -76,7 +76,7 @@
     "vitest": "^4.1.6"
   },
   "dependencies": {
-    "@plasius/gpu-shared": "^0.1.9"
+    "@plasius/gpu-shared": "^1.0.1"
   },
   "publishConfig": {
     "access": "public"
