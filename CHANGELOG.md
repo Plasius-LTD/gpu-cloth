@@ -10,6 +10,20 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
   - (placeholder)
 
 - **Changed**
+  - (placeholder)
+
+- **Fixed**
+  - (placeholder)
+
+- **Security**
+  - (placeholder)
+
+## [0.1.10] - 2026-06-29
+
+- **Added**
+  - (placeholder)
+
+- **Changed**
   - Updated `@plasius/gpu-shared` to the latest stable `1.x` baseline and
     regenerated the package lockfile from a clean install.
 
@@ -161,3 +175,4 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 [0.1.7]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.7
 [0.1.8]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.8
 [0.1.9]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.9
+[0.1.10]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.10
