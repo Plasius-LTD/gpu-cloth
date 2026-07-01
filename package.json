@@ -76,7 +76,7 @@
     "vitest": "^4.1.6"
   },
   "dependencies": {
-    "@plasius/gpu-shared": "^1.0.1"
+    "@plasius/gpu-shared": "^1.0.2"
   },
   "publishConfig": {
     "access": "public"
