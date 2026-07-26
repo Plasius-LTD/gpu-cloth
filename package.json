@@ -76,7 +76,7 @@
     "vitest": "^4.1.6"
   },
   "dependencies": {
-    "@plasius/gpu-shared": "^1.0.2"
+    "@plasius/gpu-shared": "^1.0.14"
   },
   "publishConfig": {
     "access": "public"
@@ -92,6 +92,7 @@
     }
   ],
   "overrides": {
+    "esbuild": "^0.28.1",
     "minimatch": "^10.2.1"
   },
   "engines": {
