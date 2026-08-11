@@ -11,12 +11,14 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 
 - **Changed**
   - Updated to the surviving `@plasius/gpu-shared` 1.0.14 line and the fixed esbuild resolution.
+  - Bound npm publication to the exact prepared `main` commit after successful push-triggered CI.
 
 - **Fixed**
   - (placeholder)
 
 - **Security**
   - Added fail-closed source and npm-package admission for the administrative contributor registry and pinned the CI/CD runtime to Node.js 24.18.0 LTS.
+  - Removed the npm write-token path, added a fail-closed npm 11.5.1-or-newer OIDC guard, and denied fork PR code access to self-hosted CI.
   - (placeholder)
 
 ## [0.1.11] - 2026-07-01
