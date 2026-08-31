@@ -9,4 +9,6 @@
   Performance, and Physics Integration
 - [ADR-0005](./adr-0005-cloth-material-and-wavefront-scene-source-contract.md)
   Cloth Material And Wavefront Scene-Source Contract
+- [ADR-0006](./adr-0006-hosted-oidc-package-publication.md) Hosted OIDC
+  Package Publication
 - [ADR Template](./adr-template.md)
