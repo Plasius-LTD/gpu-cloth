@@ -10,7 +10,8 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
   - (placeholder)
 
 - **Changed**
-  - Updated to the surviving `@plasius/gpu-shared` 1.0.14 line and the fixed esbuild resolution.
+  - Routed reviewed CI through the organisation's quarantined public runner group while retaining explicit platform labels.
+  - Updated the runtime `@plasius/gpu-shared` baseline to `^1.1.1` and refreshed the fixed esbuild resolution.
   - Bound npm publication to the exact prepared `main` commit after successful push-triggered CI.
   - Enabled exact-head manual CI dispatch for reviewed release validation.
 
