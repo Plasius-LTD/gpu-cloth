@@ -6,8 +6,9 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 
 ## [Unreleased]
 
-- **Added**
-  - (placeholder)
+### Fixed
+
+- Restore automatic schema-template npm publication and validate renewed trusted publishing with a sealed package inventory.
 
 - **Changed**
   - Refreshed compatible @plasius/* lockfile resolutions to the latest published releases.
@@ -19,72 +20,55 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 - **Fixed**
   - Disabled package-manager caching on self-hosted CI to prevent cache-save
     cleanup stalls from blocking the validation queue.
-  - (placeholder)
 
 - **Security**
   - Pinned patched transitive npm dependencies to clear the current audit baseline.
   - Added fail-closed source and npm-package admission for the administrative contributor registry and pinned the CI/CD runtime to Node.js 24.18.0 LTS.
   - Removed the npm write-token path, added a fail-closed npm 11.5.1-or-newer OIDC guard, and denied fork PR code access to self-hosted CI.
-  - (placeholder)
 
 ## [0.1.11] - 2026-07-01
 
 - **Added**
-  - (placeholder)
 
 - **Changed**
   - Updated the runtime `@plasius/gpu-shared` dependency baseline to
     `^1.0.2`.
-  - (placeholder)
 
 - **Fixed**
-  - (placeholder)
 
 - **Security**
-  - (placeholder)
 
 ## [0.1.10] - 2026-06-29
 
 - **Added**
-  - (placeholder)
 
 - **Changed**
   - Updated `@plasius/gpu-shared` to the latest stable `1.x` baseline and
     regenerated the package lockfile from a clean install.
 
 - **Fixed**
-  - (placeholder)
 
 - **Security**
-  - (placeholder)
 
 ## [0.1.9] - 2026-06-22
 
 - **Added**
-  - (placeholder)
 
 - **Changed**
-  - (placeholder)
 
 - **Fixed**
-  - (placeholder)
 
 - **Security**
-  - (placeholder)
 
 ## [0.1.8] - 2026-06-22
 
 - **Added**
-  - (placeholder)
 
 - **Changed**
-  - (placeholder)
 
 - **Fixed**
-  - (placeholder)
 
 - **Security**
-  - (placeholder)
 
 ## [0.1.7] - 2026-06-16
 
@@ -96,41 +80,30 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
     emit wavefront-compatible mesh, material, and representation-band metadata.
 
 - **Changed**
-  - (placeholder)
 
 - **Fixed**
-  - (placeholder)
 
 - **Security**
-  - (placeholder)
 
 ## [0.1.4] - 2026-05-13
 
 - **Added**
-  - (placeholder)
 
 - **Changed**
-  - (placeholder)
 
 - **Fixed**
-  - (placeholder)
 
 - **Security**
-  - (placeholder)
 
 ## [0.1.3] - 2026-05-13
 
 - **Added**
-  - (placeholder)
 
 - **Changed**
-  - (placeholder)
 
 - **Fixed**
-  - (placeholder)
 
 - **Security**
-  - (placeholder)
 
 ## [0.1.2] - 2026-04-02
 
@@ -147,21 +120,16 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
     favor of an import-map-backed package import.
 
 - **Security**
-  - (placeholder)
 
 ## [0.1.1] - 2026-03-23
 
 - **Added**
-  - (placeholder)
 
 - **Changed**
-  - (placeholder)
 
 - **Fixed**
-  - (placeholder)
 
 - **Security**
-  - (placeholder)
 
 ## [0.1.0] - 2026-03-21
 
