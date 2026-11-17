@@ -6,6 +6,8 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 
 ## [Unreleased]
 
+## [0.1.12] - 2026-11-17
+
 ### Fixed
 
 - Restore automatic schema-template npm publication and validate renewed trusted publishing with a sealed package inventory.
@@ -170,3 +172,6 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 [0.1.9]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.9
 [0.1.10]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.10
 [0.1.11]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.11
+
+[Unreleased]: https://github.com/Plasius-LTD/gpu-cloth/compare/v0.1.12...HEAD
+[0.1.12]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.12
