@@ -6,6 +6,8 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 
 ## [Unreleased]
 
+## [0.1.13] - 2026-11-22
+
 - Refresh supported npm dependency and security tooling baselines; preserve runtime API contracts (weekly maintenance, 2026-11-22).
 
 ## [0.1.12] - 2026-11-17
@@ -175,5 +177,6 @@ The format is based on Keep a Changelog and this project adheres to SemVer.
 [0.1.10]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.10
 [0.1.11]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.11
 
-[Unreleased]: https://github.com/Plasius-LTD/gpu-cloth/compare/v0.1.12...HEAD
+[Unreleased]: https://github.com/Plasius-LTD/gpu-cloth/compare/v0.1.13...HEAD
 [0.1.12]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.12
+[0.1.13]: https://github.com/Plasius-LTD/gpu-cloth/releases/tag/v0.1.13
